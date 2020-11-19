@@ -1,2 +1,22 @@
-﻿  StartScene.cpp
+﻿  Bullet.cpp
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\Bullet.cpp(9,15): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\Bullet.cpp(10,16): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\Bullet.cpp(27,48): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\Bullet.cpp(27,45): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
   Template.vcxproj -> C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\bin\Debug\Template.exe

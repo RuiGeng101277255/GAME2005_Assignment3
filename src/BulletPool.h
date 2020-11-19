@@ -1,23 +1,28 @@
 #pragma once
 #ifndef __BULLET_POOL__
 #define __BULLET_POOL__
-#include "Util.h"
-#include "Target.h"
 
-class BulletPool
+#include "Bullet.h"
+#include "DisplayObject.h"
+
+class BulletPool final : public DisplayObject
 {
 public:
-	void createBullet(glm::vec2 Pos, glm::vec2 Vel, int lifeTime)
-	{
-		for (int i = 0; i < PoolSize; i++)
-		{
-			bullet[i] = new Target();
-		}
-	}
+	BulletPool();
+	~BulletPool();
+
+	virtual void draw() override;
+	virtual void update() override;
+	virtual void clean() override;
+
+	void spawnBullet(int num = 10);
+	void setBulletGrav(glm::vec2 grav);
+
+
 
 private:
 	static const int PoolSize = 10;
-	Target* bullet[PoolSize];
+	Bullet* bullet[PoolSize];
 };
 
 #endif // !__BULLET_POOL__

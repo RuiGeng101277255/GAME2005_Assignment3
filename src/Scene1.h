@@ -4,6 +4,7 @@
 
 #include "Scene.h"
 #include "Button.h"
+#include "BulletPool.h"
 
 class Scene1 : public Scene
 {
@@ -20,6 +21,9 @@ public:
 private:
 
 	Button* m_pBackButton;
+	Button* m_pFireButton;
+
+	BulletPool* m_pBulletPool;
 };
 
 #endif // !__SCENE1__
