@@ -1,5 +1,6 @@
 #include "Bullet.h"
 #include "TextureManager.h"
+#include "SoundManager.h"
 #include <iostream>
 
 Bullet::Bullet()
@@ -13,6 +14,8 @@ Bullet::Bullet()
 	getRigidBody()->isColliding = false;
 
 	setType(BULLET);
+
+	SoundManager::Instance().load("../Assets/audio/thunder.ogg", "explosion", SOUND_SFX);
 }
 
 Bullet::~Bullet() = default;
@@ -33,6 +36,11 @@ void Bullet::update()
 	{
 		m_move();
 		m_checkCollision();
+		if (Collided)
+		{
+			SoundManager::Instance().playSound("explosion");
+			m_reset();
+		}
 	}
 }
 
@@ -59,6 +67,7 @@ void Bullet::m_move()
 void Bullet::m_reset()
 {
 	inUse = false;
+	Collided = false;
 	getRigidBody()->isColliding = false;
 	getTransform()->position = glm::vec2(50.0f + rand() % 700, 0.0f - rand() % 300); //Possible spawn range 300 off of the top of screen
 	getRigidBody()->velocity = glm::vec2(0, 0);

@@ -16,6 +16,7 @@ public:
 	virtual void clean() override;
 
 	bool inUse = false;
+	bool Collided = false;
 	glm::vec2 Gravity = glm::vec2 (0.0f, 9.8f);
 
 

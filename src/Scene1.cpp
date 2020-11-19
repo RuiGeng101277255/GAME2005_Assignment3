@@ -16,6 +16,7 @@ void Scene1::draw()
 
 void Scene1::update()
 {
+	m_pBulletPool->checkCollisionWith(m_pPlayer);
 	updateDisplayList();
 }
 
@@ -36,12 +37,34 @@ void Scene1::handleEvents()
 	{
 		TheGame::Instance()->quit();
 	}
+
+	if (EventManager::Instance().isKeyDown(SDL_SCANCODE_A))
+	{
+		m_pPlayer->getTransform()->position += glm::vec2(-3, 0);
+	}
+	else if (EventManager::Instance().isKeyDown(SDL_SCANCODE_D))
+	{
+		m_pPlayer->getTransform()->position += glm::vec2(3, 0);
+	}
+
+	if (EventManager::Instance().isKeyDown(SDL_SCANCODE_W))
+	{
+		m_pPlayer->getTransform()->position += glm::vec2(0, -3);
+	}
+	else if (EventManager::Instance().isKeyDown(SDL_SCANCODE_S))
+	{
+		m_pPlayer->getTransform()->position += glm::vec2(0, 3);
+	}
 }
 
 void Scene1::start()
 {
 	m_pBulletPool = new BulletPool();
 	addChild(m_pBulletPool);
+
+	m_pPlayer = new Player();
+	addChild(m_pPlayer);
+
 
 	m_pBackButton = new Button("../Assets/textures/backButton.png", "backButton", BACK_BUTTON);
 	m_pBackButton->getTransform()->position = glm::vec2(400.0f, 400.0f);

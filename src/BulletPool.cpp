@@ -1,7 +1,7 @@
 #include "BulletPool.h"
 #include <iostream>
 #include "Util.h"
-#include "Scene1.h"
+#include "CollisionManager.h"
 
 BulletPool::BulletPool()
 {
@@ -58,5 +58,17 @@ void BulletPool::setBulletGrav(glm::vec2 grav)
 	for (int m = 0; m < PoolSize; m++)
 	{
 		bullet[m]->Gravity = grav;
+	}
+}
+
+void BulletPool::checkCollisionWith(GameObject* obj)
+{
+	m_pReference = obj;
+	for (int h = 0; h < PoolSize; h++)
+	{
+		if (CollisionManager::squaredRadiusCheck(obj, bullet[h]))
+		{
+			bullet[h]->Collided = true;
+		}
 	}
 }
