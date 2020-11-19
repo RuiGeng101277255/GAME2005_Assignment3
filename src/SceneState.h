@@ -6,6 +6,8 @@ enum SceneState
 	NO_SCENE = -1,
 	START_SCENE,
 	PLAY_SCENE,
+	SCENE1,
+	SCENE2,
 	END_SCENE,
 	NUM_OF_SCENES
 };

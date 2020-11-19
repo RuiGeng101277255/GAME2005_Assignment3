@@ -27,6 +27,8 @@ private:
 	Label* m_pRuiInfo{};
 
 	Button* m_pStartButton;
+	Button* m_pScene1Button;
+	Button* m_pScene2Button;
 };
 
 #endif /* defined (__START_SCENE__) */

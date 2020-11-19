@@ -162,6 +162,14 @@ void Game::changeSceneState(const SceneState new_state)
 			m_currentScene = new EndScene();
 			std::cout << "end scene activated" << std::endl;
 			break;
+		case SCENE1:
+			m_currentScene = new Scene1();
+			std::cout << "Scene 1" << std::endl;
+			break;
+		case SCENE2:
+			m_currentScene = new Scene2();
+			std::cout << "Scene 2" << std::endl;
+			break;
 		default:
 			std::cout << "default case activated" << std::endl;
 			break;

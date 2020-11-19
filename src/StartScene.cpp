@@ -1,4 +1,6 @@
 #include "StartScene.h"
+#include "Scene1.h"
+#include "Scene2.h"
 #include <algorithm>
 #include "Game.h"
 #include "glm/gtx/string_cast.hpp"
@@ -83,6 +85,48 @@ void StartScene::start()
 	});
 	addChild(m_pStartButton);
 
-	
+	///
+
+	m_pScene1Button = new Button("../Assets/textures/scene1.png", "Scene1", SCENE1_BUTTON);
+	m_pScene1Button->getTransform()->position = glm::vec2(200.0f, 500.0f);
+
+	m_pScene1Button->addEventListener(CLICK, [&]()-> void
+		{
+			m_pScene1Button->setActive(false);
+			TheGame::Instance()->changeSceneState(SCENE1);
+		});
+
+	m_pScene1Button->addEventListener(MOUSE_OVER, [&]()->void
+		{
+			m_pScene1Button->setAlpha(128);
+		});
+
+	m_pScene1Button->addEventListener(MOUSE_OUT, [&]()->void
+		{
+			m_pScene1Button->setAlpha(255);
+		});
+	addChild(m_pScene1Button);
+
+	///
+
+	m_pScene2Button = new Button("../Assets/textures/scene2.png", "Scene2", SCENE1_BUTTON);
+	m_pScene2Button->getTransform()->position = glm::vec2(600.0f, 500.0f);
+
+	m_pScene2Button->addEventListener(CLICK, [&]()-> void
+		{
+			m_pScene2Button->setActive(false);
+			TheGame::Instance()->changeSceneState(SCENE2);
+		});
+
+	m_pScene2Button->addEventListener(MOUSE_OVER, [&]()->void
+		{
+			m_pScene2Button->setAlpha(128);
+		});
+
+	m_pScene2Button->addEventListener(MOUSE_OUT, [&]()->void
+		{
+			m_pScene2Button->setAlpha(255);
+		});
+	addChild(m_pScene2Button);
 }
 
