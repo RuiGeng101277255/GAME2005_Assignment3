@@ -65,7 +65,7 @@ void StartScene::start()
 	addChild(m_pRuiInfo);
 
 	// Start Button
-	m_pStartButton = new Button();
+	/*m_pStartButton = new Button();
 	m_pStartButton->getTransform()->position = glm::vec2(400.0f, 400.0f); 
 
 	m_pStartButton->addEventListener(CLICK, [&]()-> void
@@ -83,9 +83,9 @@ void StartScene::start()
 	{
 		m_pStartButton->setAlpha(255);
 	});
-	addChild(m_pStartButton);
+	addChild(m_pStartButton);*/
 
-	///
+	//
 
 	m_pScene1Button = new Button("../Assets/textures/scene1.png", "Scene1", SCENE1_BUTTON);
 	m_pScene1Button->getTransform()->position = glm::vec2(200.0f, 500.0f);
@@ -107,9 +107,9 @@ void StartScene::start()
 		});
 	addChild(m_pScene1Button);
 
-	///
+	//
 
-	m_pScene2Button = new Button("../Assets/textures/scene2.png", "Scene2", SCENE1_BUTTON);
+	m_pScene2Button = new Button("../Assets/textures/scene2.png", "Scene2", SCENE2_BUTTON);
 	m_pScene2Button->getTransform()->position = glm::vec2(600.0f, 500.0f);
 
 	m_pScene2Button->addEventListener(CLICK, [&]()-> void
