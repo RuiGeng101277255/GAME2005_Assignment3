@@ -4,6 +4,8 @@
 
 #include "Scene.h"
 #include "Button.h"
+#include "Brick.h"
+#include "BouncyBall.h"
 
 class Scene2 : public Scene
 {
@@ -18,7 +20,8 @@ public:
 	virtual void start() override;
 
 private:
-
+	Brick* m_pBrick;
+	BouncyBall* m_pBall;
 	Button* m_pBackButton;
 };
 

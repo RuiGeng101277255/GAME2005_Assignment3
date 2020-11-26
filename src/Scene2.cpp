@@ -16,6 +16,20 @@ void Scene2::draw()
 
 void Scene2::update()
 {
+	if (m_pBrick->getTransform()->position != EventManager::Instance().getMousePosition())
+	{
+		m_pBrick->Prev_Pos = m_pBrick->getTransform()->position;
+		m_pBrick->getTransform()->position = EventManager::Instance().getMousePosition();
+		auto dX = m_pBrick->getTransform()->position.x - m_pBrick->Prev_Pos.x;
+		auto dY = m_pBrick->getTransform()->position.y - m_pBrick->Prev_Pos.y;
+		m_pBrick->MomentumFactor = glm::vec2(dX, dY);
+	}
+
+	if (CollisionManager::AABBCheck(m_pBrick, m_pBall))
+	{
+		m_pBall->MomentumFactor = m_pBrick->MomentumFactor;
+		
+	}
 	updateDisplayList();
 }
 
@@ -59,4 +73,10 @@ void Scene2::start()
 		});
 
 	addChild(m_pBackButton);
+
+	m_pBrick = new Brick();
+	addChild(m_pBrick);
+
+	m_pBall = new BouncyBall();
+	addChild(m_pBall);
 }
