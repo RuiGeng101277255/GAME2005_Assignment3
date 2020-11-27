@@ -146,15 +146,17 @@ void BouncyBall::m_checkCollision()
 		case SIDE:
 			getRigidBody()->velocity.x *= -p_lostFactor;
 			getRigidBody()->velocity.x += MomentumFactor.x;
+			MomentumFactor.x = 0.0f;
 			cur_col = NONE;
 			break;
 		case TOP_DOWN:
 			getRigidBody()->velocity.y *= -p_lostFactor;
 			getRigidBody()->velocity.x += MomentumFactor.y;
+			MomentumFactor.y = 0.0f;
 			cur_col = NONE;
 			break;
 		}
 		cur_col = NONE;
-		MomentumFactor = glm::vec2(0.0f, 0.0f);
+		
 	}
 }

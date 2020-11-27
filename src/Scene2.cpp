@@ -31,7 +31,8 @@ void Scene2::update()
 		m_pBrick->getTransform()->position = EventManager::Instance().getMousePosition();
 		auto dX = m_pBrick->getTransform()->position.x - m_pBrick->Prev_Pos.x;
 		auto dY = m_pBrick->getTransform()->position.y - m_pBrick->Prev_Pos.y;
-		//m_pBrick->MomentumFactor = glm::vec2(dX, dY);
+		m_pBrick->MomentumFactor = glm::vec2(dX, dY);
+		//m_pBall->MomentumFactor = m_pBrick->MomentumFactor / 60.0f;
 	}
 
 	CollisionCheck();
