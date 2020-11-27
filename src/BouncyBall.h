@@ -17,6 +17,13 @@ public:
 		TOP_DOWN
 	};
 
+	enum Texture_Choice
+	{
+		BALL,
+		CUBE,
+		TRIANGLE
+	};
+
 	virtual void draw() override;
 	virtual void update() override;
 	virtual void clean() override;
@@ -25,7 +32,12 @@ public:
 	void setCollisionLocation(char loc);
 	void setEnergyLost(float l);
 
+	void changeDrawTexture(int n);
+
 	glm::vec2 MomentumFactor;
+
+	std::string getBallPos();
+	std::string getBallVel();
 
 private:
 	void m_move();
@@ -33,6 +45,10 @@ private:
 	bool isPlaying = true;
 	Col_Location cur_col = NONE;
 	float p_lostFactor = 0.995f; //momentum loss factor
+	Texture_Choice choice = BALL;
+	glm::vec2 sizeB;
+	glm::vec2 sizeC;
+	glm::vec2 sizeT;
 };
 
 #endif // !__BOUNCY_BALL__

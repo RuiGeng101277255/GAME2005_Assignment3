@@ -5,6 +5,7 @@
 #include "Bullet.h"
 #include "DisplayObject.h"
 #include "GameObject.h"
+#include <iostream>
 
 class BulletPool final : public DisplayObject
 {
@@ -20,6 +21,11 @@ public:
 	void setBulletGrav(glm::vec2 grav);
 
 	void checkCollisionWith(GameObject* obj);
+
+	std::string getBulletInUse(int n);
+	std::string getBulletPos(int n);
+	std::string getBulletVel(int n);
+	std::string getBulletAcc(int n);
 
 private:
 	static const int PoolSize = 10;

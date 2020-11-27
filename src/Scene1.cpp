@@ -2,6 +2,10 @@
 #include "Game.h"
 #include "EventManager.h"
 
+#include "imgui.h"
+#include "imgui_sdl.h"
+#include "Renderer.h"
+
 Scene1::Scene1()
 {
 	Scene1::start();
@@ -13,6 +17,10 @@ void Scene1::draw()
 {
 	TextureManager::Instance()->draw("gameBG", 400, 300, 0, 255, true);
 	drawDisplayList();
+	if (EventManager::Instance().isIMGUIActive())
+	{
+		GUI_Function();
+	}
 }
 
 void Scene1::update()
@@ -107,4 +115,34 @@ void Scene1::start()
 		});
 
 	addChild(m_pFireButton);
+}
+
+void Scene1::GUI_Function() const
+{
+	ImGui::NewFrame();
+	ImGui::Begin("Game Physics Controller", NULL, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_MenuBar);
+
+	static float gravScale = 9.8f;
+	if (ImGui::SliderFloat("Gravity: ", &gravScale, 0, 100.0f))
+	{
+		m_pBulletPool->setBulletGrav(glm::vec2(0.0f, gravScale));
+	}
+
+	for (int i = 0; i < 10; i++)
+	{
+		ImGui::Text(("Bullet #" + std::to_string(i) + " ").c_str());
+		ImGui::Text(m_pBulletPool->getBulletInUse(i).c_str());
+		ImGui::Text(m_pBulletPool->getBulletPos(i).c_str());
+		ImGui::Text(m_pBulletPool->getBulletVel(i).c_str());
+		ImGui::Text(m_pBulletPool->getBulletAcc(i).c_str());
+	}
+
+
+
+	ImGui::End();
+	ImGui::EndFrame();
+
+	ImGui::Render();
+	ImGuiSDL::Render(ImGui::GetDrawData());
+	ImGui::StyleColorsDark();
 }

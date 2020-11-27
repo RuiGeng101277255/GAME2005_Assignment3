@@ -72,3 +72,35 @@ void BulletPool::checkCollisionWith(GameObject* obj)
 		}
 	}
 }
+
+std::string BulletPool::getBulletInUse(int n)
+{
+	if (n < PoolSize)
+	{
+		return ("In use: " + std::to_string(bullet[n]->inUse));
+	}
+}
+
+std::string BulletPool::getBulletPos(int n)
+{
+	if (n < PoolSize)
+	{
+		return ("Pos(m) x: " + std::to_string(bullet[n]->getTransform()->position.x) + " y: " + std::to_string(bullet[n]->getTransform()->position.y));
+	}
+}
+
+std::string BulletPool::getBulletVel(int n)
+{
+	if (n < PoolSize)
+	{
+		return ("Vel(m/s) x: " + std::to_string(bullet[n]->getRigidBody()->velocity.x) + " y: " + std::to_string(bullet[n]->getRigidBody()->velocity.y));
+	}
+}
+
+std::string BulletPool::getBulletAcc(int n)
+{
+	if (n < PoolSize)
+	{
+		return ("Grav(m/s^2) x: " + std::to_string(bullet[n]->Gravity.x) + " y: " + std::to_string(bullet[n]->Gravity.y));
+	}
+}

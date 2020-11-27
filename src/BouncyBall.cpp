@@ -4,11 +4,17 @@
 BouncyBall::BouncyBall()
 {
 	TextureManager::Instance()->load("../Assets/textures/new/ball.png", "ball");
-	const auto size = TextureManager::Instance()->getTextureSize("ball");
-	setWidth(size.x);
-	setHeight(size.y);
-	getTransform()->position = glm::vec2(300.0f, 300.0f);
-	getRigidBody()->velocity = glm::vec2(-200.0f, 75.0f);
+	TextureManager::Instance()->load("../Assets/textures/new/cube.png", "cube");
+	TextureManager::Instance()->load("../Assets/textures/new/triangle.png", "triangle");
+
+	sizeB = TextureManager::Instance()->getTextureSize("ball");
+	sizeC = TextureManager::Instance()->getTextureSize("cube");
+	sizeT = TextureManager::Instance()->getTextureSize("triangle");
+
+	changeDrawTexture(1);
+
+	getTransform()->position = glm::vec2(3000.0f, 3000.0f);
+	getRigidBody()->velocity = glm::vec2(0.0f, 0.0f);
 	getRigidBody()->isColliding = false;
 
 	setType(BOUNCE_BALL);
@@ -22,8 +28,18 @@ void BouncyBall::draw()
 	const auto x = getTransform()->position.x;
 	const auto y = getTransform()->position.y;
 
-	// draw the target
-	TextureManager::Instance()->draw("ball", x, y, 0, 255, true);
+	switch (choice)
+	{
+	case BALL:
+		TextureManager::Instance()->draw("ball", x, y, 0, 255, true);
+		break;
+	case CUBE:
+		TextureManager::Instance()->draw("cube", x, y, 0, 255, true);
+		break;
+	case TRIANGLE:
+		TextureManager::Instance()->draw("triangle", x, y, 0, 255, true);
+		break;
+	}
 }
 
 void BouncyBall::update()
@@ -60,6 +76,38 @@ void BouncyBall::setCollisionLocation(char loc)
 void BouncyBall::setEnergyLost(float l)
 {
 	p_lostFactor = l;
+}
+
+void BouncyBall::changeDrawTexture(int n)
+{
+	switch (n)
+	{
+	case 1:
+		setWidth(sizeB.x);
+		setHeight(sizeB.y);
+		choice = BALL;
+		break;
+	case 2:
+		setWidth(sizeC.x);
+		setHeight(sizeC.y);
+		choice = CUBE;
+		break;
+	case 3:
+		setWidth(sizeT.x);
+		setHeight(sizeT.y);
+		choice = TRIANGLE;
+		break;
+	}
+}
+
+std::string BouncyBall::getBallPos()
+{
+	return ("Pos x: " + std::to_string(getTransform()->position.x) + " y: " + std::to_string(getTransform()->position.y));
+}
+
+std::string BouncyBall::getBallVel()
+{
+	return ("Vel x: " + std::to_string(getRigidBody()->velocity.x) + " y: " + std::to_string(getRigidBody()->velocity.y));
 }
 
 void BouncyBall::m_move()

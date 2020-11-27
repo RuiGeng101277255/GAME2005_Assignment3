@@ -27,6 +27,8 @@ private:
 
 	void checkTop();
 	void checkSide();
+
+	void GUI_Function() const;
 };
 
 #endif // !__SCENE2__

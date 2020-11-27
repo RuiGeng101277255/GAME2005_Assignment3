@@ -20,6 +20,7 @@ public:
 	virtual void start() override;
 
 private:
+	void GUI_Function() const;
 
 	Button* m_pBackButton;
 	Button* m_pFireButton;

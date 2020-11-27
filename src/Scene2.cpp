@@ -2,6 +2,10 @@
 #include "Game.h"
 #include "EventManager.h"
 
+#include "imgui.h"
+#include "imgui_sdl.h"
+#include "Renderer.h"
+
 Scene2::Scene2()
 {
 	Scene2::start();
@@ -13,6 +17,10 @@ void Scene2::draw()
 {
 	TextureManager::Instance()->draw("bg", 400, 300, 0, 255, true);
 	drawDisplayList();
+	if (EventManager::Instance().isIMGUIActive())
+	{
+		GUI_Function();
+	}
 }
 
 void Scene2::update()
@@ -112,6 +120,8 @@ void Scene2::start()
 	m_pFireButton->addEventListener(CLICK, [&]()-> void
 		{
 			m_pFireButton->setActive(false);
+			m_pBall->getTransform()->position = glm::vec2(100.0f + rand() % 600, 100.0f + rand() % 400);
+			m_pBall->getRigidBody()->velocity = glm::vec2(10.0f + rand() % 100, 10.0f + rand() % 100);
 			//m_pBulletPool->spawnBullet();
 		});
 
@@ -156,4 +166,43 @@ void Scene2::checkSide()
 			m_pBall->setCollisionLocation('s');
 		}
 	}
+}
+
+void Scene2::GUI_Function() const
+{
+	ImGui::NewFrame();
+	ImGui::Begin("Game Physics Controller", NULL, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_MenuBar);
+
+	ImGui::Text("Momentum Factor(wall collision): Factor of 1.0f is no momentum lost, the less the value, the more is lost during each collision");
+
+	static float momentumLost = 0.995f;
+	if (ImGui::SliderFloat("Momentum Lost Factor: ", &momentumLost, 0.5f, 1.0f))
+	{
+		m_pBall->setEnergyLost(momentumLost);
+	}
+
+	if (ImGui::Button("Ball"))
+	{
+		m_pBall->changeDrawTexture(1);
+	}
+	if (ImGui::Button("Cube"))
+	{
+		m_pBall->changeDrawTexture(2);
+	}
+	if (ImGui::Button("Triangle"))
+	{
+		m_pBall->changeDrawTexture(3);
+	}
+
+	ImGui::Text("Bouncy Ball Information: ");
+	ImGui::Text(m_pBall->getBallPos().c_str());
+	ImGui::Text(m_pBall->getBallVel().c_str());
+
+	ImGui::End();
+	ImGui::EndFrame();
+
+	// Don't Remove this
+	ImGui::Render();
+	ImGuiSDL::Render(ImGui::GetDrawData());
+	ImGui::StyleColorsDark();
 }
