@@ -3,8 +3,8 @@
 
 BouncyBall::BouncyBall()
 {
-	TextureManager::Instance()->load("../Assets/textures/detonator1.png", "circle");
-	const auto size = TextureManager::Instance()->getTextureSize("circle");
+	TextureManager::Instance()->load("../Assets/textures/new/ball.png", "ball");
+	const auto size = TextureManager::Instance()->getTextureSize("ball");
 	setWidth(size.x);
 	setHeight(size.y);
 	getTransform()->position = glm::vec2(300.0f, 300.0f);
@@ -23,7 +23,7 @@ void BouncyBall::draw()
 	const auto y = getTransform()->position.y;
 
 	// draw the target
-	TextureManager::Instance()->draw("circle", x, y, 0, 255, true);
+	TextureManager::Instance()->draw("ball", x, y, 0, 255, true);
 }
 
 void BouncyBall::update()
@@ -72,12 +72,12 @@ void BouncyBall::m_checkCollision()
 {
 	if (cur_col == NONE)
 	{
-		if ((getTransform()->position.x <= 0.0f) || (getTransform()->position.x >= 800.0f))
+		if ((getTransform()->position.x <= 32.0f) || (getTransform()->position.x >= 768.0f))
 		{
 			cur_col = SIDE;
 		}
 
-		if ((getTransform()->position.y <= 0.0f) || (getTransform()->position.y >= 600.0f))
+		if ((getTransform()->position.y <= 32.0f) || (getTransform()->position.y >= 568.0f))
 		{
 			cur_col = TOP_DOWN;
 		}
@@ -88,12 +88,12 @@ void BouncyBall::m_checkCollision()
 		{
 		case SIDE:
 			getRigidBody()->velocity.x *= (-1.0f * E_lost);
-			//getRigidBody()->velocity.x += MomentumFactor.x;
+			getRigidBody()->velocity.x += MomentumFactor.x;
 			cur_col = NONE;
 			break;
 		case TOP_DOWN:
 			getRigidBody()->velocity.y *= (-1.0f * E_lost);
-			//getRigidBody()->velocity.x += MomentumFactor.y;
+			getRigidBody()->velocity.x += MomentumFactor.y;
 			cur_col = NONE;
 			break;
 		}

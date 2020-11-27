@@ -11,6 +11,7 @@ Scene1::~Scene1() = default;
 
 void Scene1::draw()
 {
+	TextureManager::Instance()->draw("gameBG", 400, 300, 0, 255, true);
 	drawDisplayList();
 }
 
@@ -40,34 +41,35 @@ void Scene1::handleEvents()
 
 	if (EventManager::Instance().isKeyDown(SDL_SCANCODE_A))
 	{
-		m_pPlayer->getTransform()->position += glm::vec2(-3, 0);
+		m_pPlayer->getTransform()->position += glm::vec2(-5, 0);
 	}
 	else if (EventManager::Instance().isKeyDown(SDL_SCANCODE_D))
 	{
-		m_pPlayer->getTransform()->position += glm::vec2(3, 0);
+		m_pPlayer->getTransform()->position += glm::vec2(5, 0);
 	}
 
 	if (EventManager::Instance().isKeyDown(SDL_SCANCODE_W))
 	{
-		m_pPlayer->getTransform()->position += glm::vec2(0, -3);
+		m_pPlayer->getTransform()->position += glm::vec2(0, -5);
 	}
 	else if (EventManager::Instance().isKeyDown(SDL_SCANCODE_S))
 	{
-		m_pPlayer->getTransform()->position += glm::vec2(0, 3);
+		m_pPlayer->getTransform()->position += glm::vec2(0, 5);
 	}
 }
 
 void Scene1::start()
 {
+	TextureManager::Instance()->load("../Assets/textures/new/gameBG.png", "gameBG");
+
 	m_pBulletPool = new BulletPool();
 	addChild(m_pBulletPool);
 
 	m_pPlayer = new Player();
 	addChild(m_pPlayer);
 
-
-	m_pBackButton = new Button("../Assets/textures/backButton.png", "backButton", BACK_BUTTON);
-	m_pBackButton->getTransform()->position = glm::vec2(400.0f, 400.0f);
+	m_pBackButton = new Button("../Assets/textures/new/backButton.png", "backButton", BACK_BUTTON);
+	m_pBackButton->getTransform()->position = glm::vec2(50.0f, 550.0f);
 	m_pBackButton->addEventListener(CLICK, [&]()-> void
 		{
 			m_pBackButton->setActive(false);
@@ -86,8 +88,8 @@ void Scene1::start()
 
 	addChild(m_pBackButton);
 
-	m_pFireButton = new Button("../Assets/textures/mine.png", "FireButton", FIRE_BUTTON);
-	m_pFireButton->getTransform()->position = glm::vec2(400.0f, 500.0f);
+	m_pFireButton = new Button("../Assets/textures/new/activateButton.png", "FireButton", FIRE_BUTTON);
+	m_pFireButton->getTransform()->position = glm::vec2(750.0f, 550.0f);
 	m_pFireButton->addEventListener(CLICK, [&]()-> void
 		{
 			m_pFireButton->setActive(false);

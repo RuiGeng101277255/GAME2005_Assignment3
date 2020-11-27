@@ -11,6 +11,7 @@ Scene2::~Scene2() = default;
 
 void Scene2::draw()
 {
+	TextureManager::Instance()->draw("bg", 400, 300, 0, 255, true);
 	drawDisplayList();
 }
 
@@ -25,18 +26,6 @@ void Scene2::update()
 		m_pBrick->MomentumFactor = glm::vec2(dX, dY);
 	}
 
-	/*if (CollisionManager::AABBCheck(m_pBrick, m_pBall))
-	{
-		m_pBall->MomentumFactor = m_pBrick->MomentumFactor;
-		if ((m_pBall->getTransform()->position.y == m_pBrick->getTransform()->position.y + (m_pBrick->getHeight() * 0.5f))|| (m_pBall->getTransform()->position.y == m_pBrick->getTransform()->position.y - (m_pBrick->getHeight() * 0.5f)))
-		{
-			m_pBall->setCollisionLocation('t');
-		}
-		else if ((m_pBall->getTransform()->position.x == m_pBrick->getTransform()->position.x + (m_pBrick->getWidth() * 0.5f)) || (m_pBall->getTransform()->position.x == m_pBrick->getTransform()->position.x - (m_pBrick->getWidth() * 0.5f)))
-		{
-			m_pBall->setCollisionLocation('s');
-		}
-	}*/
 	if (CollisionManager::TopCheck(m_pBrick, m_pBall))
 	{
 		if (m_pBall->getTransform()->position.y < m_pBrick->getTransform()->position.y)
@@ -87,8 +76,10 @@ void Scene2::handleEvents()
 
 void Scene2::start()
 {
-	m_pBackButton = new Button("../Assets/textures/backButton.png", "backButton", BACK_BUTTON);
-	m_pBackButton->getTransform()->position = glm::vec2(400.0f, 400.0f);
+	TextureManager::Instance()->load("../Assets/textures/new/bg2.png", "bg");
+
+	m_pBackButton = new Button("../Assets/textures/new/backButton.png", "backButton", BACK_BUTTON);
+	m_pBackButton->getTransform()->position = glm::vec2(50.0f, 550.0f);
 	m_pBackButton->addEventListener(CLICK, [&]()-> void
 		{
 			m_pBackButton->setActive(false);
@@ -112,4 +103,24 @@ void Scene2::start()
 
 	m_pBall = new BouncyBall();
 	addChild(m_pBall);
+
+	m_pFireButton = new Button("../Assets/textures/new/activateButton.png", "FireButton", FIRE_BUTTON);
+	m_pFireButton->getTransform()->position = glm::vec2(750.0f, 550.0f);
+	m_pFireButton->addEventListener(CLICK, [&]()-> void
+		{
+			m_pFireButton->setActive(false);
+			//m_pBulletPool->spawnBullet();
+		});
+
+	m_pFireButton->addEventListener(MOUSE_OVER, [&]()->void
+		{
+			m_pFireButton->setAlpha(128);
+		});
+
+	m_pFireButton->addEventListener(MOUSE_OUT, [&]()->void
+		{
+			m_pFireButton->setAlpha(255);
+		});
+
+	addChild(m_pFireButton);
 }

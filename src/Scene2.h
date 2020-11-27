@@ -22,6 +22,7 @@ public:
 private:
 	Brick* m_pBrick;
 	BouncyBall* m_pBall;
+	Button* m_pFireButton;
 	Button* m_pBackButton;
 };
 

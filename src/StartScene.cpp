@@ -16,6 +16,7 @@ StartScene::~StartScene()
 
 void StartScene::draw()
 {
+	TextureManager::Instance()->draw("title", 400, 300, 0, 255, true);
 	drawDisplayList();
 }
 
@@ -47,20 +48,24 @@ void StartScene::handleEvents()
 
 void StartScene::start()
 {
-	const SDL_Color blue = { 0, 0, 255, 255 };
+	TextureManager::Instance()->load("../Assets/textures/new/titleScreen.png", "title");
+
+	/*const SDL_Color blue = { 0, 0, 255, 255 };
 	m_pStartLabel = new Label("START SCENE", "Consolas", 80, blue, glm::vec2(400.0f, 40.0f));
 	m_pStartLabel->setParent(this);
 	addChild(m_pStartLabel);
 
 	m_pInstructionsLabel = new Label("Press 1 to Play", "Consolas", 40, blue, glm::vec2(400.0f, 120.0f));
 	m_pInstructionsLabel->setParent(this);
-	addChild(m_pInstructionsLabel);
+	addChild(m_pInstructionsLabel);*/
 
-	m_pJuanInfo = new Label("Juan de Gouveia 101203253", "Consolas", 40, blue, glm::vec2(400.0f, 200.0f));
+	const SDL_Color white = { 255, 255, 255, 255 };
+
+	m_pJuanInfo = new Label("Juan de Gouveia 101203253", "Consolas", 40, white, glm::vec2(400.0f, 300.0f));
 	m_pJuanInfo->setParent(this);
 	addChild(m_pJuanInfo);
 
-	m_pRuiInfo = new Label("Rui Geng 101277255", "Consolas", 40, blue, glm::vec2(400.0f, 250.0f));
+	m_pRuiInfo = new Label("Rui Geng 101277255", "Consolas", 40, white, glm::vec2(400.0f, 350.0f));
 	m_pRuiInfo->setParent(this);
 	addChild(m_pRuiInfo);
 
@@ -87,7 +92,7 @@ void StartScene::start()
 
 	//
 
-	m_pScene1Button = new Button("../Assets/textures/scene1.png", "Scene1", SCENE1_BUTTON);
+	m_pScene1Button = new Button("../Assets/textures/new/scene1.png", "Scene1", SCENE1_BUTTON);
 	m_pScene1Button->getTransform()->position = glm::vec2(200.0f, 500.0f);
 
 	m_pScene1Button->addEventListener(CLICK, [&]()-> void
@@ -109,7 +114,7 @@ void StartScene::start()
 
 	//
 
-	m_pScene2Button = new Button("../Assets/textures/scene2.png", "Scene2", SCENE2_BUTTON);
+	m_pScene2Button = new Button("../Assets/textures/new/scene2.png", "Scene2", SCENE2_BUTTON);
 	m_pScene2Button->getTransform()->position = glm::vec2(600.0f, 500.0f);
 
 	m_pScene2Button->addEventListener(CLICK, [&]()-> void

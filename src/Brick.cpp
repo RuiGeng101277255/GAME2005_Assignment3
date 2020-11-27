@@ -3,7 +3,7 @@
 
 Brick::Brick()
 {
-	TextureManager::Instance()->load("../Assets/textures/tile.png", "brick");
+	TextureManager::Instance()->load("../Assets/textures/new/brick.png", "brick");
 	const auto size = TextureManager::Instance()->getTextureSize("brick");
 	setWidth(size.x);
 	setHeight(size.y);

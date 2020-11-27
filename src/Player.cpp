@@ -3,13 +3,17 @@
 
 Player::Player(): m_currentAnimationState(PLAYER_IDLE_RIGHT)
 {
-	TextureManager::Instance()->loadSpriteSheet(
+	/*TextureManager::Instance()->loadSpriteSheet(
 		"../Assets/sprites/atlas.txt",
 		"../Assets/sprites/atlas.png", 
 		"spritesheet");
 
 	setSpriteSheet(TextureManager::Instance()->getSpriteSheet("spritesheet"));
-	
+	*/
+
+	TextureManager::Instance()->load("../Assets/textures/new/Ship1.png", "ship");
+	const auto size = TextureManager::Instance()->getTextureSize("ship");
+
 	// set frame width
 	setWidth(53);
 
@@ -22,7 +26,7 @@ Player::Player(): m_currentAnimationState(PLAYER_IDLE_RIGHT)
 	getRigidBody()->isColliding = false;
 	setType(PLAYER);
 
-	m_buildAnimations();
+	//m_buildAnimations();
 }
 
 Player::~Player()
@@ -34,28 +38,29 @@ void Player::draw()
 	const auto x = getTransform()->position.x;
 	const auto y = getTransform()->position.y;
 
-	// draw the player according to animation state
-	switch(m_currentAnimationState)
-	{
-	case PLAYER_IDLE_RIGHT:
-		TextureManager::Instance()->playAnimation("spritesheet", getAnimation("idle"),
-			x, y, 0.12f, 0, 255, true);
-		break;
-	case PLAYER_IDLE_LEFT:
-		TextureManager::Instance()->playAnimation("spritesheet", getAnimation("idle"),
-			x, y, 0.12f, 0, 255, true, SDL_FLIP_HORIZONTAL);
-		break;
-	case PLAYER_RUN_RIGHT:
-		TextureManager::Instance()->playAnimation("spritesheet", getAnimation("run"),
-			x, y, 0.25f, 0, 255, true);
-		break;
-	case PLAYER_RUN_LEFT:
-		TextureManager::Instance()->playAnimation("spritesheet", getAnimation("run"),
-			x, y, 0.25f, 0, 255, true, SDL_FLIP_HORIZONTAL);
-		break;
-	default:
-		break;
-	}
+	TextureManager::Instance()->draw("ship", x, y, 0, 255, true);
+	//// draw the player according to animation state
+	//switch(m_currentAnimationState)
+	//{
+	//case PLAYER_IDLE_RIGHT:
+	//	TextureManager::Instance()->playAnimation("spritesheet", getAnimation("idle"),
+	//		x, y, 0.12f, 0, 255, true);
+	//	break;
+	//case PLAYER_IDLE_LEFT:
+	//	TextureManager::Instance()->playAnimation("spritesheet", getAnimation("idle"),
+	//		x, y, 0.12f, 0, 255, true, SDL_FLIP_HORIZONTAL);
+	//	break;
+	//case PLAYER_RUN_RIGHT:
+	//	TextureManager::Instance()->playAnimation("spritesheet", getAnimation("run"),
+	//		x, y, 0.25f, 0, 255, true);
+	//	break;
+	//case PLAYER_RUN_LEFT:
+	//	TextureManager::Instance()->playAnimation("spritesheet", getAnimation("run"),
+	//		x, y, 0.25f, 0, 255, true, SDL_FLIP_HORIZONTAL);
+	//	break;
+	//default:
+	//	break;
+	//}
 	
 }
 

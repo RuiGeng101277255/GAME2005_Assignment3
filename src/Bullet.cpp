@@ -5,8 +5,8 @@
 
 Bullet::Bullet()
 {
-	TextureManager::Instance()->load("../Assets/textures/detonator1.png", "circle");
-	const auto size = TextureManager::Instance()->getTextureSize("circle");
+	TextureManager::Instance()->load("../Assets/textures/new/laser.png", "laser");
+	const auto size = TextureManager::Instance()->getTextureSize("laser");
 	setWidth(size.x);
 	setHeight(size.y);
 	getTransform()->position = glm::vec2(50.0f + rand() % 700, 0.0f - rand() % 300); //Possible spawn range 300 off of the top of screen
@@ -15,7 +15,7 @@ Bullet::Bullet()
 
 	setType(BULLET);
 
-	SoundManager::Instance().load("../Assets/audio/thunder.ogg", "explosion", SOUND_SFX);
+	SoundManager::Instance().load("../Assets/audio/explosion.ogg", "explosion", SOUND_SFX);
 }
 
 Bullet::~Bullet() = default;
@@ -27,7 +27,7 @@ void Bullet::draw()
 	const auto y = getTransform()->position.y;
 
 	// draw the target
-	TextureManager::Instance()->draw("circle", x, y, 0, 255, true);
+	TextureManager::Instance()->draw("laser", x, y, 0, 255, true);
 }
 
 void Bullet::update()
