@@ -18,6 +18,7 @@ public:
 	void setPosition(glm::vec2 Pos);
 	glm::vec2 Prev_Pos;
 	glm::vec2 MomentumFactor;
+	float mass = 10.0f;
 
 private:
 

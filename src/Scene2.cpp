@@ -32,7 +32,7 @@ void Scene2::update()
 		auto dX = m_pBrick->getTransform()->position.x - m_pBrick->Prev_Pos.x;
 		auto dY = m_pBrick->getTransform()->position.y - m_pBrick->Prev_Pos.y;
 		m_pBrick->MomentumFactor = glm::vec2(dX, dY);
-		//m_pBall->MomentumFactor = m_pBrick->MomentumFactor / 60.0f;
+		m_pBall->MomentumFactor = m_pBrick->mass / m_pBall->mass * m_pBrick->MomentumFactor / 60.0f;
 	}
 
 	CollisionCheck();
@@ -213,9 +213,16 @@ void Scene2::GUI_Function() const
 		m_pBall->changeDrawTexture(3);
 	}
 
+	static float m_pBallMass = m_pBall->mass;
+	if (ImGui::SliderFloat("Mass Change", &m_pBallMass, 0.0f, 100.0f))
+	{
+		m_pBall->mass = m_pBallMass;
+	}
+
 	ImGui::Text("Bouncy Ball Information: ");
 	ImGui::Text(m_pBall->getBallPos().c_str());
 	ImGui::Text(m_pBall->getBallVel().c_str());
+	ImGui::Text(("Mass(kg): " + std::to_string(m_pBall->mass)).c_str());
 
 	ImGui::End();
 	ImGui::EndFrame();

@@ -39,6 +39,8 @@ public:
 	std::string getBallPos();
 	std::string getBallVel();
 
+	float mass = 5.0f;
+
 private:
 	void m_move();
 	void m_checkCollision();

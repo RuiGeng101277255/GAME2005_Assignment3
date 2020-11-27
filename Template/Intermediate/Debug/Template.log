@@ -1,2 +1,157 @@
-﻿  Scene2.cpp
+﻿  BouncyBall.cpp
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\BouncyBall.cpp(34,47): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\BouncyBall.cpp(34,44): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\BouncyBall.cpp(37,47): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\BouncyBall.cpp(37,44): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\BouncyBall.cpp(40,51): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\BouncyBall.cpp(40,48): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\BouncyBall.cpp(86,17): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\BouncyBall.cpp(87,18): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\BouncyBall.cpp(91,17): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\BouncyBall.cpp(92,18): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\BouncyBall.cpp(96,17): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\BouncyBall.cpp(97,18): warning C4244: 'argument': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Brick.cpp
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\Brick.cpp(8,15): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\Brick.cpp(9,16): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\Brick.cpp(26,47): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\Brick.cpp(26,44): warning C4244: 'argument': conversion from 'const T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  EndScene.cpp
+  EventManager.cpp
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\EventManager.cpp(119,29): warning C4018: '<': signed/unsigned mismatch
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\EventManager.cpp(178,37): warning C4244: '=': conversion from 'Sint32' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\EventManager.cpp(179,37): warning C4244: '=': conversion from 'Sint32' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  Game.cpp
+  PlayScene.cpp
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\PlayScene.cpp(212,24): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\PlayScene.cpp(215,43): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\PlayScene.cpp(219,23): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\PlayScene.cpp(222,44): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\PlayScene.cpp(247,23): warning C4305: '=': truncation from 'double' to 'float'
+  Scene1.cpp
+  Scene2.cpp
+  StartScene.cpp
+  TextureManager.cpp
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(137,36): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(137,21): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(138,37): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(138,21): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(180,36): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(180,21): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(181,37): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(181,21): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(197,34): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(197,26): warning C4244: 'initializing': conversion from 'float' to 'const int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(225,33): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(225,26): warning C4244: 'initializing': conversion from 'float' to 'const int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(232,32): warning C4018: '>': signed/unsigned mismatch
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(260,36): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(260,21): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(261,37): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(261,21): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(290,36): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(290,21): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(291,37): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(291,21): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(310,11): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\TextureManager.cpp(311,11): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  main.cpp
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\main.cpp(12,32): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
   Template.vcxproj -> C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\bin\Debug\Template.exe
