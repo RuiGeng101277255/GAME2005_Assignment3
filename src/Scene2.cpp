@@ -34,31 +34,33 @@ void Scene2::update()
 		//m_pBrick->MomentumFactor = glm::vec2(dX, dY);
 	}
 
-	if (CollisionManager::TopCheck(m_pBrick, m_pBall))
-	{
-		m_pBall->setCollisionLocation('t');
-		if (m_pBall->getTransform()->position.y < m_pBrick->getTransform()->position.y)
-		{
-			m_pBall->getTransform()->position.y -= 5.0f;
-		}
-		else
-		{
-			m_pBall->getTransform()->position.y += 5.0f;
-		}
-	}
+	CollisionCheck();
 
-	if (CollisionManager::SideCheck(m_pBrick, m_pBall))
-	{
-		m_pBall->setCollisionLocation('s');
-		if (m_pBall->getTransform()->position.x < m_pBrick->getTransform()->position.x)
-		{
-			m_pBall->getTransform()->position.x -= 5.0f;
-		}
-		else
-		{
-			m_pBall->getTransform()->position.x += 5.0f;
-		}
-	}
+	//if (CollisionManager::TopCheck(m_pBrick, m_pBall))
+	//{
+	//	m_pBall->setCollisionLocation('t');
+	//	if (m_pBall->getTransform()->position.y < m_pBrick->getTransform()->position.y)
+	//	{
+	//		m_pBall->getTransform()->position.y -= 5.0f;
+	//	}
+	//	else
+	//	{
+	//		m_pBall->getTransform()->position.y += 5.0f;
+	//	}
+	//}
+
+	//if (CollisionManager::SideCheck(m_pBrick, m_pBall))
+	//{
+	//	m_pBall->setCollisionLocation('s');
+	//	if (m_pBall->getTransform()->position.x < m_pBrick->getTransform()->position.x)
+	//	{
+	//		m_pBall->getTransform()->position.x -= 5.0f;
+	//	}
+	//	else
+	//	{
+	//		m_pBall->getTransform()->position.x += 5.0f;
+	//	}
+	//}
 
 	//checkTop();
 	//checkSide();
@@ -136,6 +138,22 @@ void Scene2::start()
 		});
 
 	addChild(m_pFireButton);
+}
+
+void Scene2::CollisionCheck()
+{
+	if (CollisionManager::AABBCheck(m_pBrick, m_pBall))
+	{
+		if (abs(m_pBall->getTransform()->position.y - m_pBrick->getTransform()->position.y) < (0.5f * (m_pBall->getHeight() + m_pBrick->getHeight())))
+		{
+			m_pBall->setCollisionLocation('s');
+		}
+
+		if (abs(m_pBall->getTransform()->position.x - m_pBrick->getTransform()->position.x) < (0.5f * (m_pBall->getWidth() + m_pBrick->getWidth())))
+		{
+			m_pBall->setCollisionLocation('t');
+		}
+	}
 }
 
 void Scene2::checkTop()

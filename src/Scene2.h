@@ -25,6 +25,7 @@ private:
 	Button* m_pFireButton;
 	Button* m_pBackButton;
 
+	void CollisionCheck();
 	void checkTop();
 	void checkSide();
 
