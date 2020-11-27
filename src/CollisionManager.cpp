@@ -109,7 +109,7 @@ bool CollisionManager::TopCheck(GameObject* obj1, GameObject* obj2)
 		p1.y + p1Height > p2.y
 		)
 	{
-		if (abs(p1.x - p2.x) < abs(p1.y - p2.y))
+		if (abs(p1.x - p2.x) < 0.5f * (p1Width + p2Width))
 		{
 			return true;
 		}
@@ -134,7 +134,7 @@ bool CollisionManager::SideCheck(GameObject* obj1, GameObject* obj2)
 		p1.y + p1Height > p2.y
 		)
 	{
-		if (abs(p1.x - p2.x) > abs(p1.y - p2.y)) 
+		if (abs(p1.y - p2.y) < 0.5f * (p1Height + p2Height))
 		{
 			return true;
 		}

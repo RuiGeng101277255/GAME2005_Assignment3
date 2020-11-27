@@ -8,7 +8,7 @@ BouncyBall::BouncyBall()
 	setWidth(size.x);
 	setHeight(size.y);
 	getTransform()->position = glm::vec2(300.0f, 300.0f);
-	getRigidBody()->velocity = glm::vec2(-100, 200);
+	getRigidBody()->velocity = glm::vec2(-200.0f, 75.0f);
 	getRigidBody()->isColliding = false;
 
 	setType(BOUNCE_BALL);
@@ -59,12 +59,21 @@ void BouncyBall::setCollisionLocation(char loc)
 
 void BouncyBall::setEnergyLost(float l)
 {
-	E_lost = l;
+	p_lostFactor = l;
 }
 
 void BouncyBall::m_move()
 {
 	float deltaTime = 1.0f / 60.0f;
+	if (abs(getRigidBody()->velocity.x) < 0.05f)
+	{
+		getRigidBody()->velocity.x = 0.0f;
+	}
+
+	if (abs(getRigidBody()->velocity.y) < 0.05f)
+	{
+		getRigidBody()->velocity.y = 0.0f;
+	}
 	getTransform()->position += getRigidBody()->velocity * deltaTime;
 }
 
@@ -87,17 +96,17 @@ void BouncyBall::m_checkCollision()
 		switch (cur_col)
 		{
 		case SIDE:
-			getRigidBody()->velocity.x *= (-1.0f * E_lost);
+			getRigidBody()->velocity.x *= -p_lostFactor;
 			getRigidBody()->velocity.x += MomentumFactor.x;
 			cur_col = NONE;
 			break;
 		case TOP_DOWN:
-			getRigidBody()->velocity.y *= (-1.0f * E_lost);
+			getRigidBody()->velocity.y *= -p_lostFactor;
 			getRigidBody()->velocity.x += MomentumFactor.y;
 			cur_col = NONE;
 			break;
 		}
 		cur_col = NONE;
-		MomentumFactor = glm::vec2(0, 0);
+		MomentumFactor = glm::vec2(0.0f, 0.0f);
 	}
 }

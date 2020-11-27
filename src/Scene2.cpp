@@ -23,11 +23,12 @@ void Scene2::update()
 		m_pBrick->getTransform()->position = EventManager::Instance().getMousePosition();
 		auto dX = m_pBrick->getTransform()->position.x - m_pBrick->Prev_Pos.x;
 		auto dY = m_pBrick->getTransform()->position.y - m_pBrick->Prev_Pos.y;
-		m_pBrick->MomentumFactor = glm::vec2(dX, dY);
+		//m_pBrick->MomentumFactor = glm::vec2(dX, dY);
 	}
 
 	if (CollisionManager::TopCheck(m_pBrick, m_pBall))
 	{
+		m_pBall->setCollisionLocation('t');
 		if (m_pBall->getTransform()->position.y < m_pBrick->getTransform()->position.y)
 		{
 			m_pBall->getTransform()->position.y -= 5.0f;
@@ -36,11 +37,11 @@ void Scene2::update()
 		{
 			m_pBall->getTransform()->position.y += 5.0f;
 		}
-		m_pBall->setCollisionLocation('t');
 	}
 
 	if (CollisionManager::SideCheck(m_pBrick, m_pBall))
 	{
+		m_pBall->setCollisionLocation('s');
 		if (m_pBall->getTransform()->position.x < m_pBrick->getTransform()->position.x)
 		{
 			m_pBall->getTransform()->position.x -= 5.0f;
@@ -49,8 +50,10 @@ void Scene2::update()
 		{
 			m_pBall->getTransform()->position.x += 5.0f;
 		}
-		m_pBall->setCollisionLocation('s');
 	}
+
+	//checkTop();
+	//checkSide();
 
 	updateDisplayList();
 }
@@ -123,4 +126,34 @@ void Scene2::start()
 		});
 
 	addChild(m_pFireButton);
+}
+
+void Scene2::checkTop()
+{
+	if ((m_pBall->getTransform()->position.x + m_pBall->getWidth() >= m_pBrick->getTransform()->position.x)&& (m_pBall->getTransform()->position.x + m_pBall->getWidth() <= m_pBrick->getTransform()->position.x + m_pBrick->getWidth()))
+	{
+		if ((m_pBall->getTransform()->position.y > m_pBrick->getTransform()->position.y)&&((m_pBall->getTransform()->position.y - m_pBall->getHeight() <= m_pBrick->getTransform()->position.y + m_pBrick->getHeight())))
+		{
+			m_pBall->setCollisionLocation('t');
+		}
+		else if ((m_pBall->getTransform()->position.y < m_pBrick->getTransform()->position.y) && ((m_pBall->getTransform()->position.y + m_pBall->getHeight() <= m_pBrick->getTransform()->position.y - m_pBrick->getHeight())))
+		{
+			m_pBall->setCollisionLocation('t');
+		}
+	}
+}
+
+void Scene2::checkSide()
+{
+	if ((m_pBall->getTransform()->position.y >= m_pBrick->getTransform()->position.y + m_pBrick->getHeight()) && (m_pBall->getTransform()->position.y + m_pBall->getHeight() <= m_pBrick->getTransform()->position.y + m_pBrick->getHeight()))
+	{
+		if ((m_pBall->getTransform()->position.x > m_pBrick->getTransform()->position.x) && ((m_pBall->getTransform()->position.x - m_pBall->getWidth() <= m_pBrick->getTransform()->position.x + m_pBrick->getWidth())))
+		{
+			m_pBall->setCollisionLocation('s');
+		}
+		else if ((m_pBall->getTransform()->position.x < m_pBrick->getTransform()->position.x) && ((m_pBall->getTransform()->position.x + m_pBall->getWidth() <= m_pBrick->getTransform()->position.x - m_pBrick->getWidth())))
+		{
+			m_pBall->setCollisionLocation('s');
+		}
+	}
 }

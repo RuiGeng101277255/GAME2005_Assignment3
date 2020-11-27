@@ -7,7 +7,7 @@ Brick::Brick()
 	const auto size = TextureManager::Instance()->getTextureSize("brick");
 	setWidth(size.x);
 	setHeight(size.y);
-	getTransform()->position = glm::vec2(50.0f + rand() % 700, 0.0f - rand() % 300); //Possible spawn range 300 off of the top of screen
+	getTransform()->position = glm::vec2(50.0f, 0.0f);
 	getRigidBody()->velocity = glm::vec2(0, 0);
 	getRigidBody()->isColliding = false;
 

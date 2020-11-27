@@ -1,2 +1,76 @@
-﻿  Scene2.cpp
+﻿  CollisionManager.cpp
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(9,28): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(9,21): warning C4244: 'initializing': conversion from 'T' to 'const int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(10,28): warning C4244: 'initializing': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(10,21): warning C4244: 'initializing': conversion from 'T' to 'const int', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(20,72): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(20,24): warning C4244: 'initializing': conversion from 'float' to 'const int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(57,41): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(57,22): warning C4244: 'initializing': conversion from 'int' to 'const float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(58,43): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(58,23): warning C4244: 'initializing': conversion from 'int' to 'const float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(59,41): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(59,22): warning C4244: 'initializing': conversion from 'int' to 'const float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(60,43): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(60,23): warning C4244: 'initializing': conversion from 'int' to 'const float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(100,40): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(100,23): warning C4244: 'initializing': conversion from 'int' to 'const float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(101,40): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(101,23): warning C4244: 'initializing': conversion from 'int' to 'const float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(102,38): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(102,22): warning C4244: 'initializing': conversion from 'int' to 'const float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(103,38): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(103,22): warning C4244: 'initializing': conversion from 'int' to 'const float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(125,38): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(125,22): warning C4244: 'initializing': conversion from 'int' to 'const float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(126,38): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(126,22): warning C4244: 'initializing': conversion from 'int' to 'const float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(127,40): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(127,23): warning C4244: 'initializing': conversion from 'int' to 'const float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(128,40): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(128,23): warning C4244: 'initializing': conversion from 'int' to 'const float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(224,9): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(233,36): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(233,25): warning C4244: 'initializing': conversion from 'float' to 'const int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(235,38): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(235,26): warning C4244: 'initializing': conversion from 'float' to 'const int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(238,60): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(238,50): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(264,19): warning C4244: 'return': conversion from '_Ty' to 'int', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(271,35): warning C4244: 'initializing': conversion from 'const _Ty' to 'int', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(271,25): warning C4244: 'initializing': conversion from 'const _Ty' to 'const int', possible loss of data
+          with
+          [
+              _Ty=float
+          ]
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(274,19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(276,20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(353,38): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(353,23): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(354,38): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\src\CollisionManager.cpp(354,23): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
   Template.vcxproj -> C:\Users\ruich\Documents\GitHub\GAME2005_Assignment3\bin\Debug\Template.exe

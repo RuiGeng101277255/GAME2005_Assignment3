@@ -10,7 +10,7 @@ public:
 	BouncyBall();
 	~BouncyBall();
 
-	enum Col_Location
+	enum Col_Location //Collision location
 	{
 		NONE,
 		SIDE,
@@ -32,7 +32,7 @@ private:
 	void m_checkCollision();
 	bool isPlaying = true;
 	Col_Location cur_col = NONE;
-	float E_lost = 1.0f;
+	float p_lostFactor = 0.995f; //momentum loss factor
 };
 
 #endif // !__BOUNCY_BALL__

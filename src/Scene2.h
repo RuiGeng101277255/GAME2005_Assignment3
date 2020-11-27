@@ -24,6 +24,9 @@ private:
 	BouncyBall* m_pBall;
 	Button* m_pFireButton;
 	Button* m_pBackButton;
+
+	void checkTop();
+	void checkSide();
 };
 
 #endif // !__SCENE2__
