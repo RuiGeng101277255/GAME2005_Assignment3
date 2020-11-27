@@ -22,7 +22,7 @@ public:
 	virtual void clean() override;
 
 	void setPlay(bool b);
-	void setCollisionLocation(Col_Location loc);
+	void setCollisionLocation(char loc);
 	void setEnergyLost(float l);
 
 	glm::vec2 MomentumFactor;

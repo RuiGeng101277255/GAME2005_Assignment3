@@ -44,9 +44,17 @@ void BouncyBall::setPlay(bool b)
 	isPlaying = b;
 }
 
-void BouncyBall::setCollisionLocation(Col_Location loc)
+void BouncyBall::setCollisionLocation(char loc)
 {
-	cur_col = loc;
+	switch (loc)
+	{
+	case 's':
+		cur_col = SIDE;
+		break;
+	case 't':
+		cur_col = TOP_DOWN;
+		break;
+	}
 }
 
 void BouncyBall::setEnergyLost(float l)
@@ -62,27 +70,31 @@ void BouncyBall::m_move()
 
 void BouncyBall::m_checkCollision()
 {
-	if ((getTransform()->position.x <= 0.0f) || (getTransform()->position.x >= 800.0f))
+	if (cur_col == NONE)
 	{
-		cur_col = SIDE;
-	}
+		if ((getTransform()->position.x <= 0.0f) || (getTransform()->position.x >= 800.0f))
+		{
+			cur_col = SIDE;
+		}
 
-	if ((getTransform()->position.y <= 0.0f) || (getTransform()->position.y >= 600.0f))
-	{
-		cur_col = TOP_DOWN;
+		if ((getTransform()->position.y <= 0.0f) || (getTransform()->position.y >= 600.0f))
+		{
+			cur_col = TOP_DOWN;
+		}
 	}
-
 	if (cur_col != NONE)
 	{
 		switch (cur_col)
 		{
 		case SIDE:
 			getRigidBody()->velocity.x *= (-1.0f * E_lost);
-			getRigidBody()->velocity.x += MomentumFactor.x;
+			//getRigidBody()->velocity.x += MomentumFactor.x;
+			cur_col = NONE;
 			break;
 		case TOP_DOWN:
 			getRigidBody()->velocity.y *= (-1.0f * E_lost);
-			getRigidBody()->velocity.x += MomentumFactor.y;
+			//getRigidBody()->velocity.x += MomentumFactor.y;
+			cur_col = NONE;
 			break;
 		}
 		cur_col = NONE;

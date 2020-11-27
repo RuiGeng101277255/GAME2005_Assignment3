@@ -93,6 +93,56 @@ bool CollisionManager::AABBCheck(GameObject* object1, GameObject* object2)
 	return false;
 }
 
+bool CollisionManager::TopCheck(GameObject* obj1, GameObject* obj2)
+{
+	const auto p1 = obj1->getTransform()->position;
+	const auto p2 = obj2->getTransform()->position;
+	const float p1Height = obj1->getHeight();
+	const float p2Height = obj2->getHeight();
+	const float p1Width = obj1->getWidth();
+	const float p2Width = obj2->getWidth();
+
+	if (
+		p1.x < p2.x + p2Width &&
+		p1.x + p1Width > p2.x &&
+		p1.y < p2.y + p2Height &&
+		p1.y + p1Height > p2.y
+		)
+	{
+		if (abs(p1.x - p2.x) < abs(p1.y - p2.y))
+		{
+			return true;
+		}
+		return false;
+	}
+	return false;
+}
+
+bool CollisionManager::SideCheck(GameObject* obj1, GameObject* obj2)
+{
+	const auto p1 = obj1->getTransform()->position;
+	const auto p2 = obj2->getTransform()->position;
+	const float p1Width = obj1->getWidth();
+	const float p2Width = obj2->getWidth();
+	const float p1Height = obj1->getHeight();
+	const float p2Height = obj2->getHeight();
+
+	if (
+		p1.x < p2.x + p2Width &&
+		p1.x + p1Width > p2.x &&
+		p1.y < p2.y + p2Height &&
+		p1.y + p1Height > p2.y
+		)
+	{
+		if (abs(p1.x - p2.x) > abs(p1.y - p2.y)) 
+		{
+			return true;
+		}
+		return false;
+	}
+	return false;
+}
+
 bool CollisionManager::lineLineCheck(const glm::vec2 line1_start, const glm::vec2 line1_end, const glm::vec2 line2_start, const glm::vec2 line2_end)
 {
 	const auto x1 = line1_start.x;

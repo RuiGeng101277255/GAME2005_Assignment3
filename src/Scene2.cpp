@@ -25,11 +25,44 @@ void Scene2::update()
 		m_pBrick->MomentumFactor = glm::vec2(dX, dY);
 	}
 
-	if (CollisionManager::AABBCheck(m_pBrick, m_pBall))
+	/*if (CollisionManager::AABBCheck(m_pBrick, m_pBall))
 	{
 		m_pBall->MomentumFactor = m_pBrick->MomentumFactor;
-		
+		if ((m_pBall->getTransform()->position.y == m_pBrick->getTransform()->position.y + (m_pBrick->getHeight() * 0.5f))|| (m_pBall->getTransform()->position.y == m_pBrick->getTransform()->position.y - (m_pBrick->getHeight() * 0.5f)))
+		{
+			m_pBall->setCollisionLocation('t');
+		}
+		else if ((m_pBall->getTransform()->position.x == m_pBrick->getTransform()->position.x + (m_pBrick->getWidth() * 0.5f)) || (m_pBall->getTransform()->position.x == m_pBrick->getTransform()->position.x - (m_pBrick->getWidth() * 0.5f)))
+		{
+			m_pBall->setCollisionLocation('s');
+		}
+	}*/
+	if (CollisionManager::TopCheck(m_pBrick, m_pBall))
+	{
+		if (m_pBall->getTransform()->position.y < m_pBrick->getTransform()->position.y)
+		{
+			m_pBall->getTransform()->position.y -= 5.0f;
+		}
+		else
+		{
+			m_pBall->getTransform()->position.y += 5.0f;
+		}
+		m_pBall->setCollisionLocation('t');
 	}
+
+	if (CollisionManager::SideCheck(m_pBrick, m_pBall))
+	{
+		if (m_pBall->getTransform()->position.x < m_pBrick->getTransform()->position.x)
+		{
+			m_pBall->getTransform()->position.x -= 5.0f;
+		}
+		else
+		{
+			m_pBall->getTransform()->position.x += 5.0f;
+		}
+		m_pBall->setCollisionLocation('s');
+	}
+
 	updateDisplayList();
 }
 
